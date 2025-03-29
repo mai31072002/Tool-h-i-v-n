@@ -1,0 +1,150 @@
+@import "styles/index";
+@import "~antd/dist/antd.css";
+
+.main-layout {
+  //height: calc(100vh - 93px);
+  top: 116px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  min-height: 100vh;
+  height: 100%;
+}
+
+.block {
+  display: block;
+}
+
+.site-layout-background {
+  background: $white;
+}
+
+.breadcrumb-home {
+  color: #40a9ff !important;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.ant-breadcrumb {
+  background-color: $white;
+  padding: 10px 20px;
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  box-shadow: 0 1px 2px 0 rgba(60, 75, 100, 0.14),
+    0 3px 1px -2px rgba(60, 75, 100, 0.12), 0 1px 5px 0 rgba(60, 75, 100, 0.2);
+}
+
+.main-content {
+  clear: both;
+  background: var(--bg, #E3E7F2);
+}
+
+@media screen and (max-width: 1440px) {
+  .main-content {
+    margin: 0px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .main-content {
+    margin: 18px 10px 0 20px;
+  }
+}
+
+$primary-font: SF Pro Text, serif;
+
+.popup-content-first .ant-steps {
+  padding: 20px 30px 10px 0 !important;
+  display: block;
+  text-align: center;
+}
+
+.steps-content .ant-steps-item-tail:after{
+  display: none !important;
+}
+
+.steps-content .ant-steps-item-finish, .ant-steps-item-process{
+  .ant-steps-item-icon {
+    width: 16px !important;
+    height: 16px !important;
+    .ant-steps-icon .ant-steps-icon-dot{
+      background: #FFFFFF;
+    }
+  }
+}
+
+  .button-first {
+    background-color: #4C449B !important;
+    border-radius: 50px !important;
+    height: 50px;
+    width: 270px;
+  }
+  .button-first span {
+    font-family: SF Pro Text, serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 17px;
+    color: #ffffff;
+  }
+  .button-first[disabled] {
+    background-color: rgba(0, 0, 0, 0.25) !important;
+    span {
+      color: #ffffff69 !important;
+    }
+  }
+
+  .on-boarding-carousel .slick-dots li button{
+    width: 15px;
+    height: 15px;
+    border-radius: 8px;
+  }
+  .on-boarding-carousel .slick-dots li{
+    margin-right: 30px;
+  }
+
+  .button-edit-steps{
+    background: linear-gradient(270deg, #67A21B 50.77%, #8CC63F 100%);
+    border-radius: 4px;
+  }
+
+  .button-edit-steps span{
+    font-family: SF Pro Text, serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #FFFFFF;
+  }
+
+  .button-edit-steps:hover{
+    background: linear-gradient(270deg, #67A21B 50.77%, #8CC63F 100%) !important;
+  }
+
+  .popup-mobile {
+    .ant-steps{
+      padding: 10px 0 0 0 !important;
+    }
+    .ant-modal-content .ant-modal-body {
+      //.steps-content .ant-steps-item-content {
+      //  min-height: 0;
+      //}
+      .steps-content .ant-steps-item-container .ant-steps-item-icon{
+        margin-left: 10px !important;
+      }
+      .steps-content .ant-steps-item{
+        display: inline-block;
+      }
+    }
+  }
+
+  .main-layout-home{
+    //background: #FFFFFF;
+    //padding-top: 185px;
+    //background: radial-gradient(85.43% 85.43% at 50% 0%, #FFFFFF 0%, #F4F4F4 100%) !important/* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+    //@media (max-width: 900px) {
+    //  padding-top: 72px;
+    //}
+  }
+  .site-layout-home{
+    //background: radial-gradient(85.43% 85.43% at 50% 0%, #FFFFFF 0%, #F4F4F4 100%) !important;
+  }

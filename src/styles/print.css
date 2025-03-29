@@ -1,0 +1,149 @@
+@media print {
+  body {
+    padding: 30px;
+    font-size: 14px;
+  }
+  .print-common table,
+  .receipt table {
+    width: 100%;
+    text-align: left;
+    border-radius: 2px 2px 0 0;
+    border-collapse: separate;
+    border-spacing: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+  }
+  .print-common table th {
+    font-weight: 700;
+    background: #eaedf1;
+    text-align: left;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    transition: background 0.3s;
+    position: relative;
+    overflow-wrap: break-word;
+    font-size: 14px;
+  }
+  .print-common table tbody tr:first-child td {
+    border-top: 0;
+  }
+  .print-common table tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+  }
+  .print-common table td {
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    transition: background 0.3s;
+    position: relative;
+    overflow-wrap: break-word;
+    font-size: 14px;
+  }
+  .print-common table td:first-child {
+    border-left: 1px solid #ddd;
+  }
+  .label-color {
+    /* opacity: 0.5; */
+    font-size: 12px;
+    color: #252a31;
+    line-height: 25px;
+  }
+  .content {
+    text-align: right;
+    line-height: 25px;
+  }
+  .line-height-25 {
+    line-height: 25px;
+  }
+  .label-color-text {
+    font-size: 14px;
+    color: #252a31;
+  }
+  .print-header {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+  }
+  .print-body {
+    border-bottom: 1px dashed #ddd;
+    padding: 20px 0;
+  }
+  .print-footer {
+    padding: 20px 0;
+  }
+  .print-common,
+  .receipt {
+    display: block;
+  }
+  .receipt {
+    font-size: 14px;
+    margin: 0 auto;
+  }
+  .receipt .logo-print {
+    width: 100%;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+  }
+  .logo-icon {
+    width: 120px;
+  }
+  .text-bank {
+    font-size: 26px;
+    margin-top: -5px;
+    font-style: italic;
+  }
+  .receipt .title-print {
+    border-top: 1px dashed #ddd;
+    border-bottom: 1px dashed #ddd;
+    padding: 8px 0;
+    text-align: center;
+    font-weight: bold;
+  }
+  .receipt table th {
+    font-weight: 700;
+    border-bottom: 1px dashed #ddd;
+    transition: background 0.3s;
+    overflow-wrap: break-word;
+  }
+  .td-body td {
+    border-bottom: 1px dashed #ddd;
+    padding: 10px;
+    transition: background 0.3s;
+    overflow-wrap: break-word;
+  }
+  .receipt td,
+  .receipt th {
+    padding: 10px;
+    font-size: 14px;
+  }
+  .receipt-footer {
+    text-align: center;
+  }
+  .receipt-footer td {
+    border-top: 1px solid #ddd;
+    padding: 20px;
+  }
+  .receipt-footer p {
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+  .line {
+    border-bottom: 1px solid #ddd;
+    display: inline-block;
+    width: 100%;
+    padding-bottom: 10px;
+  }
+  .pb10 {
+    padding-bottom: 10px;
+  }
+  .pt10 {
+    padding-top: 10px;
+  }
+  .fs16 {
+    font-size: 16px;
+  }
+}

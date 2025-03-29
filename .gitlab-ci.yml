@@ -1,0 +1,159 @@
+stages:
+  - build-testing
+  - docker-build-testing
+  - deploy-testing
+  - build-production
+  - docker-build-production
+  - deploy-production
+
+variables:
+  DOCKER_DRIVER: overlay2
+
+build-testing:
+  stage: build-testing
+  tags:
+    - docker
+  image: node:16.13.1-alpine
+  cache:
+    key: ${CI_COMMIT_REF_SLUG} # only apply for current branch
+    paths:
+      - node_modules
+      - .yarn
+  script:
+    - echo "Start building App"
+    - yarn
+    - yarn build:dev
+    - echo "Build successfully!"
+  only:
+    - develop
+  artifacts:
+    expire_in: 48 hour
+    paths:
+      - build
+
+docker-build-testing:
+  stage: docker-build-testing
+  tags:
+    - docker
+  image: docker:20.10
+  services:
+    - name: docker:20.10-dind
+      alias: docker
+  before_script:
+    - echo "Start building image"
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+  script:
+    - DOCKER_BUILDKIT=1 docker build -t "$CI_REGISTRY_IMAGE":"dev" .
+    - docker push "$CI_REGISTRY_IMAGE":"dev"
+  only:
+    - develop
+
+deploy-testing:
+  stage: deploy-testing
+  tags:
+    - docker
+  variables:
+    GIT_STRATEGY: none
+  before_script:
+    - echo "Deploying app"
+    - apk update && apk add openssh-client bash
+  script:
+    # chạy ssh-agent tương ứng với Gitlab Runner hiện tại
+    - eval $(ssh-agent -s)
+
+    # thêm nội dung của biến SSH_PRIVATE_KEY vào agent store
+    - bash -c 'ssh-add <(echo "$SSH_PRIVATE_KEY")'
+
+    # tạo folder ~/.ssh
+    - mkdir -p ~/.ssh
+
+    # Scan lấy SSH Host key cho địa chỉ IP server
+    # Được kết quả bao nhiêu thì thêm vào file known_hosts
+    - ssh-keyscan -H $SSH_SERVER_IP_DEV >> ~/.ssh/known_hosts
+
+    # Sửa lại quyền của file known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+    # ssh and deploy
+    - >
+      ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_SERVER_IP_DEV -p $SSH_SERVER_PORT
+      "docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY;
+      docker pull "$CI_REGISTRY_IMAGE":"dev";
+      docker stop tool-hai-van-frontend-dev || true && docker rm tool-hai-van-frontend-dev || true;
+      docker run -p 8308:80 --mount source=tool_hai_van_frontend_nginx_logs_dev,destination=/var/log/nginx -d --name tool-hai-van-frontend-dev "$CI_REGISTRY_IMAGE":"dev";"
+  only:
+    - develop
+
+build-production:
+  stage: build-production
+  tags:
+    - docker
+  image: node:16.13.1-alpine
+  cache:
+    key: ${CI_COMMIT_REF_SLUG} # only apply for current branch
+    paths:
+      - node_modules
+      - .yarn
+  script:
+    - echo "Start building App"
+    - yarn
+    - yarn build:prod
+    - echo "Build successfully!"
+  only:
+    - master
+  artifacts:
+    expire_in: 48 hour
+    paths:
+      - build
+
+docker-build-production:
+  stage: docker-build-production
+  tags:
+    - docker
+  image: docker:20.10
+  services:
+    - name: docker:20.10-dind
+      alias: docker
+  before_script:
+    - echo "Start building image"
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+  script:
+    - DOCKER_BUILDKIT=1 docker build -t "$CI_REGISTRY_IMAGE":"prod" .
+    - docker push "$CI_REGISTRY_IMAGE":"prod"
+  only:
+    - master
+
+deploy-production:
+  stage: deploy-production
+  tags:
+    - docker
+  variables:
+    GIT_STRATEGY: none
+  before_script:
+    - echo "Deploying app on production"
+    - apk update && apk add openssh-client bash
+  script:
+    # chạy ssh-agent tương ứng với Gitlab Runner hiện tại
+    - eval $(ssh-agent -s)
+
+    # thêm nội dung của biến SSH_PRIVATE_KEY vào agent store
+    - bash -c 'ssh-add <(echo "$SSH_PRIVATE_KEY")'
+
+    # tạo folder ~/.ssh
+    - mkdir -p ~/.ssh
+
+    # Scan lấy SSH Host key cho địa chỉ IP server
+    # Được kết quả bao nhiêu thì thêm vào file known_hosts
+    - ssh-keyscan -H $SSH_SERVER_IP_PROD >> ~/.ssh/known_hosts
+
+    # Sửa lại quyền của file known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+    # ssh and deploy
+    - >
+      ssh -o StrictHostKeyChecking=no $SSH_USER_PROD@$SSH_SERVER_IP_PROD -p $SSH_SERVER_PORT
+      "sudo docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY;
+      sudo docker pull "$CI_REGISTRY_IMAGE":"prod";
+      sudo docker stop tool-hai-van-frontend-prod || true && docker rm tool-hai-van-frontend-prod || true;
+      sudo docker run -p 8308:80 --mount source=tool_hai_van_frontend_nginx_logs_prod,destination=/var/log/nginx -d --name tool-hai-van-frontend-prod "$CI_REGISTRY_IMAGE":"prod";"
+  when: manual
+  only:
+    - master

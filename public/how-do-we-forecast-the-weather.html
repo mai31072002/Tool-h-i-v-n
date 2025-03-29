@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, shrink-to-fit=no" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="KTHK Administration" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo76.png" />
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Custom styles for this template -->
+  <link href="/static.css/jumbotron-narrow.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  <style>
+    .ant-row {
+      display: flex;
+      flex-flow: row wrap;
+      min-width: 0;
+      padding: 0.1rem 0;
+    }
+
+    .font-weight-5 {
+      font-weight: 500;
+    }
+
+    .font-weight-4 {
+      font-weight: 400;
+    }
+
+    li {
+      display: list-item;
+      text-align: -webkit-match-parent;
+    }
+
+    .ant-col {
+      position: relative;
+      max-width: 100%;
+      min-height: 1px;
+    }
+
+    .contact-header {
+      font-family: SF Pro Text, serif;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 24px;
+      align-items: center;
+      color: #ffffff;
+    }
+
+    .site-collapse-custom-collapse {
+      background: #212429;
+    }
+
+    .site-collapse-custom-panel {
+      background: #2c3034;
+      margin-bottom: 16px;
+      border: none !important;
+      border-radius: 8px !important;
+    }
+
+    .site-collapse-custom-panel .ant-collapse-header {
+      font-family: SF Pro Text, serif;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 21px;
+      align-items: center;
+      color: #cecfd0 !important;
+    }
+
+    .site-collapse-custom-collapse .ant-collapse-item-active .ant-collapse-header {
+      background: #4c449b;
+      box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    .site-collapse-custom-collapse .ant-collapse-content {
+      padding: 20px;
+    }
+
+    .while {
+      font-family: SF Pro Text, serif;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 21px;
+      align-items: center;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+
+    .grey {
+      font-family: SF Pro Text, serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 20px;
+      align-items: center;
+      color: #cecfd0;
+    }
+
+    .neutral {
+      font-family: SF Pro Text, serif;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 19px;
+      align-items: center;
+      color: #d6d2ff;
+    }
+
+    .tab-help .ant-tabs-nav .ant-tabs-ink-bar {
+      height: 0 !important;
+      margin: 10px;
+      background: none;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-left: 12px solid #9187f2;
+    }
+
+    .tab-help .ant-tabs-nav .ant-tabs-ink-bar {
+      left: 0;
+    }
+
+    .tab-help .ant-tabs-nav .ant-tabs-tab-active .ant-tabs-tab-btn {
+      color: #9187f2;
+      font-family: SF Pro Text, serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+    }
+
+    .tab-help .ant-tabs-nav .ant-tabs-tab-active {
+      background: #2c3034;
+      border-radius: 8px;
+    }
+
+    .tab-help .ant-tabs-nav .ant-tabs-tab {
+      font-family: SF Pro Text, serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 19px;
+      color: #cecfd0;
+    }
+
+    .tab-help > .ant-tabs-content-holder {
+      border: none;
+    }
+
+    .help-content {
+      background: #2c3034;
+      border-radius: 8px;
+      padding: 30px;
+    }
+
+    .footer {
+      margin-top: 20px;
+    }
+
+    .footer-header {
+      font-family: SF Pro Text, serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 23px;
+      align-items: center;
+      color: #f5f3ff;
+    }
+
+    .footer-title {
+      font-family: SF Pro Text, serif;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 21px;
+      align-items: center;
+      text-transform: uppercase;
+      color: #9187f2;
+      margin-top: 50px;
+    }
+
+    .footer-content {
+      font-family: SF Pro Text, serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 17px;
+      align-items: center;
+      color: #777777;
+      margin-top: 25px;
+    }
+
+    .footer-content-value {
+      font-family: SF Pro Text, serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 23px;
+      align-items: center;
+      color: #ffffff;
+      margin-top: 9px;
+    }
+
+    .footer-title-video {
+      font-family: SF Pro Text, serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 23px;
+      align-items: center;
+      color: #ffffff;
+      margin: 11px 0 15px 0;
+    }
+
+    .help-menu {
+      margin-bottom: 30px;
+    }
+
+    .help-menu #select-helps .ant-select-selector {
+      border: 1px solid #4c449b !important;
+      box-sizing: border-box;
+      border-radius: 8px;
+      height: 48px;
+      background-color: transparent;
+    }
+
+    .help-menu .ant-select-selection-item {
+      height: 48px;
+    }
+
+    .select-title-help {
+      font-family: SF Pro Text;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 19px;
+      /* identical to box height */
+      padding: 14px 0px 12px 12px;
+      display: flex;
+      align-items: center;
+      /* White */
+      color: #ffffff;
+    }
+
+    .select-detail-help {
+      background-color: #212429;
+    }
+
+    .select-detail-help .rc-virtual-list .ant-select-item-option-active:not(.ant-select-item-option-disabled) {
+      background-color: #2f3339;
+    }
+
+    .help-content .while {
+      margin-bottom: 16px;
+      line-height: 27px;
+    }
+
+    .help-content ul {
+      padding-left: 15px;
+      margin-top: 15px;
+    }
+
+    .help-content li {
+      margin-bottom: 15px;
+    }
+
+    .help-content .intro-weatherplus li {
+      margin-bottom: 20px;
+    }
+
+    .help-footer .footer-title {
+      margin-top: 30px;
+    }
+
+    .help-content img {
+      border-radius: 8px;
+    }
+
+    .help-content .intro-metplus ul {
+      margin-top: 15px;
+    }
+
+    .help-content .intro-metplus .detail-feature {
+      margin-bottom: 35px;
+    }
+
+    .help-content .config-account-mobile .grey {
+      margin-bottom: 20px;
+    }
+
+    .tab-config-account img {
+      margin: 0px 0px 20px 32px;
+    }
+
+    .tab-intro-metplus img {
+      margin: 0px 0px 20px 8px;
+    }
+
+    .tab-weather-data .grey {
+      margin-left: 25px;
+    }
+
+    .help-content .faqs-mobile .neutral {
+      margin: 0px;
+    }
+
+    .help-content .weather-data .grey {
+      padding-left: 25px;
+    }
+    @media (max-width: 1200px) {
+      .help-content .weather-data .grey {
+        padding-left: 16px;
+      }
+    }
+
+    .help-content .config-account-mobile img {
+      margin-left: 15px;
+      border: 1px solid #212429;
+      border-radius: 5px;
+    }
+
+    .help-content .intro-metplus img {
+      margin-left: 2px;
+      border: 1px solid #212429;
+      border-radius: 5px;
+    }
+
+    .help-content .ant-collapse {
+      background-color: transparent;
+      border: 0px;
+    }
+
+    .help-content .ant-collapse-content .ant-collapse-content-box {
+      padding: 0px 10px 0px 24px;
+    }
+
+    .help-content .ant-collapse .ant-collapse-item {
+      border-bottom: 0px;
+    }
+
+    .help-content .ant-collapse-header-text {
+      font-family: SF Pro Text, serif;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 19px;
+      color: #d6d2ff;
+    }
+
+    .help-content .ant-collapse .ant-collapse-content {
+      background-color: transparent;
+      color: #cecfd0;
+      border-top: 0px;
+    }
+
+    .collapseQuestion .ant-collapse-header {
+      padding: 10px 5px 10px 5px !important;
+    }
+
+    .text-important-help {
+      font-family: SF Pro Text;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 17px;
+      color: #FFFFFF;
+      text-transform: capitalize;
+    }
+
+    .help-text {
+      font-family: SF Pro Text, serif;
+    }
+
+    .help-text-header-font-size {
+      font-size: 22px;
+    }
+
+    .help-text-content-font-size {
+      font-size: 16px;
+    }
+
+    .help-text-content-condition-font-size {
+      font-size: 14px;
+    }
+
+    .help-text-color {
+      color: #64AF02;
+    }
+
+    .help-text-color-content {
+      color: #1B1A32;
+    }
+
+    .help-background {
+      background: #D8F0BA;
+      border-radius: 10px;
+      padding: 8px;
+    }
+
+    .help-padding {
+      padding-left: 10px;
+    }
+
+    .help-padding-parent {
+      padding-left: 20px;
+    }
+
+    .help-text-align {
+      text-align: center;
+    }
+
+    .ant-row-center {
+      justify-content: center;
+    }
+
+    .ant-row-middle {
+      align-items: center;
+    }
+
+    .ant-col-xs-24 {
+      display: block;
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+    .ant-col-xs-14 {
+      display: block;
+      flex: 0 0 58.33333333%;
+      max-width: 58.33333333%;
+    }
+    .ant-col-xs-8 {
+      display: block;
+      flex: 0 0 33.33333333%;
+      max-width: 33.33333333%;
+    }
+    .ant-col-xs-7 {
+      display: block;
+      flex: 0 0 29.16666667%;
+      max-width: 29.16666667%;
+    }
+    .ant-col-xs-3 {
+      display: block;
+      flex: 0 0 12.5%;
+      max-width: 12.5%;
+    }
+    .ant-col-xs-18 {
+      display: block;
+      flex: 0 0 75%;
+      max-width: 75%;
+    }
+    .ant-col-xs-16 {
+      display: block;
+      flex: 0 0 66.66666667%;
+      max-width: 66.66666667%;
+    }
+    .ant-col-xs-5 {
+      display: block;
+      flex: 0 0 20.83333333%;
+      max-width: 20.83333333%;
+    }
+    .ant-col-xs-13 {
+      display: block;
+      flex: 0 0 54.16666667%;
+      max-width: 54.16666667%;
+    }
+    .ant-col-xs-17 {
+      display: block;
+      flex: 0 0 70.83333333%;
+      max-width: 70.83333333%;
+    }
+    .ant-col-xs-20 {
+      display: block;
+      flex: 0 0 83.33333333%;
+      max-width: 83.33333333%;
+    }
+    .ant-col-xs-11 {
+      display: block;
+      flex: 0 0 45.83333333%;
+      max-width: 45.83333333%;
+    }
+    .ant-col-xs-4 {
+      display: block;
+      flex: 0 0 16.66666667%;
+      max-width: 16.66666667%;
+    }
+    .ant-col-xs-21 {
+      display: block;
+      flex: 0 0 87.5%;
+      max-width: 87.5%;
+    }
+    .ant-col-xs-10 {
+      display: block;
+      flex: 0 0 41.66666667%;
+      max-width: 41.66666667%;
+    }
+    .ant-row-start {
+      justify-content: flex-start;
+    }
+    .ant-row-end {
+      justify-content: flex-end;
+    }
+  </style>
+</head>
+
+<body style="display: flex;justify-content: center;">
+<div>Chúng tôi dự báo thời tiết như thế nào</div>
+</body>
+
+</html>

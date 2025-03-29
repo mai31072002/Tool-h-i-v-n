@@ -1,0 +1,20 @@
+// variables and mixins
+@import "weatherplus-admin/variables";
+@import "weatherplus-admin/mixins";
+@import "weatherplus-admin/shadows";
+
+// plugin css
+@import "weatherplus-admin/plugins/plugin-nouislider";
+@import "weatherplus-admin/plugins/plugin-perfect-scrollbar";
+@import "weatherplus-admin/plugins/plugin-react-datetime";
+@import "weatherplus-admin/plugins/plugin-react-bootstrap-sweetalert";
+@import "weatherplus-admin/plugins/plugin-react-chartist";
+@import "weatherplus-admin/plugins/plugin-react-big-calendar";
+@import "weatherplus-admin/plugins/plugin-react-jvectormap";
+@import "weatherplus-admin/plugins/plugin-react-table";
+@import "weatherplus-admin/plugins/plugin-react-tagsinput";
+
+// Core CSS
+@import "weatherplus-admin/misc";
+@import "weatherplus-admin/fileupload";
+@import "weatherplus-admin/fixed-plugin";

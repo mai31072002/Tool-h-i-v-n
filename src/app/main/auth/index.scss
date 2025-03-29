@@ -1,0 +1,44 @@
+.main-container-register {
+  height: 880px;
+  padding: 0px;
+  // background-image: url("../../../assets/icon/background-register.png");
+  background-size: 100% 100%;
+  // background-color: transparent;
+}
+.main-container-register-mobile {
+  padding: 0px;
+  // background-image: url("../../../assets/icon/background-register.png");
+  background-size: 100% 100%;
+  // background-color: transparent;
+}
+
+.form-input-username{
+  width: 405px;
+}
+.input-form-login{
+  border-radius: 5px;
+  border: 1px solid #9F9F9F;
+  background: #FFF;
+  height: 45px;
+
+  color: #000;
+  font-family: Helvetica Neue;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.button-submit-login{
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #9F9F9F;
+  background: #053281;
+  color: #FFF;
+  text-align: center;
+  font-family: Helvetica Neue;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  height: 44px;
+}

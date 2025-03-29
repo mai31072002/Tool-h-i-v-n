@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, shrink-to-fit=no" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="KTHK Administration" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo76.png" />
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Custom styles for this template -->
+  <link href="/static.css/jumbotron-narrow.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      const ispTxnId = urlParams.get('ispTxnId')
+      const dataKey = urlParams.get('dataKey')
+      const tmnCode = urlParams.get('tmnCode')
+      document.getElementById("ispTxnId").value = ispTxnId;
+      document.getElementById("dataKey").value = dataKey;
+      document.getElementById("tmnCode").value = tmnCode;
+      document.querySelector("form").submit();
+    });
+  </script>
+  <style>
+    .title {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="title">Đang chuyển tiếp đến trang thanh toán...</div>
+
+  <form action="https://sandbox.vnpayment.vn/isp-svc/recurring-payment/pay" method="post">
+    <input type="hidden" id="ispTxnId" name="ispTxnId"><br><br>
+    <input type="hidden" id="dataKey" name="dataKey"><br><br>
+    <input type="hidden" id="tmnCode" name="tmnCode"><br><br>
+  </form>
+
+</body>
+
+</html>

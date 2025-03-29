@@ -1,0 +1,203 @@
+// @use "../../layout/index2" as light;
+// @use "../../layout/index3" as dark;
+
+.text-button {
+  /* Button2 */
+
+  font-family: "SF Pro Text";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height */
+
+  align-items: center;
+
+  color: #ffffff;
+  margin-left: 10px;
+}
+.container-content-home {
+  background: #FFFFFF;
+  padding: 0px;
+  //height: calc(100vh - 185px);
+  display: flex;
+  justify-content: center;
+
+  .box-content-home{
+    display: flex;
+    justify-content: center;
+    height: fit-content;
+  }
+  .content-detail{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .cover-content{
+    padding-top:50px;
+    width: 405px;
+    @media (max-width: 1600px) {
+      padding-top:150px
+    }
+    @media (max-width: 576px) {
+      padding-top: 100px;
+    }
+  }
+  .title-home{
+    color: #4D449B;
+    text-align: left;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    padding-bottom: 8px;
+    line-height: 32px;
+    @media (max-width: 576px) {
+      font-size: 22px;
+      padding-bottom: 8px;
+    }
+  }
+  .note-title-home{
+    color: #3E4854;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+    padding-bottom: 50px;
+  }
+}
+.form-login-tool{
+  .ant-form-item-label{
+    .ant-form-item-required{
+      color: #222D39;
+      font-family: Inter;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 20px; /* 142.857% */
+    }
+  }
+}
+.form-input-username{
+  width: 405px;
+  @media (max-width: 576px) {
+    text-align: center;
+  }
+}
+.form-input-password{
+  @media (max-width: 576px) {
+    text-align: center;
+  }
+}
+.input-form-login{
+  border-radius: 4px;
+  border: 1px solid rgba(62, 72, 84, 0.30);
+  background: #FFF;
+  height: 48px;
+
+  color: #222D39;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 142.857% */
+  @media (max-width: 576px) {
+    width: 80%;
+  }
+}
+.container-checkbox-remember-login{
+  .text-remember-login{
+    color: rgba(62, 72, 84, 0.70);
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px; /* 133.333% */
+    .ant-checkbox-inner{
+      border: 1px solid #adadad;
+    }
+    .ant-checkbox-checked .ant-checkbox-inner{
+      background: #4D449B;
+    }
+  }
+}
+.container-forgot-password{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .link-forgot-password{
+    color: #1B9EDE;
+    text-align: right;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px; /* 133.333% */
+  }
+}
+.form-button-login{
+  @media (max-width: 576px) {
+    text-align: center;
+  }
+}
+.button-submit-login{
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid #1B9EDE;
+  background: var(--primary, #4D449B);
+
+  color: #FFF;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px; /* 150% */
+  height: 44px;
+  @media (max-width: 576px) {
+    font-size: 22px;
+    width: 80%;
+  }
+}
+.box-content-home-right{
+  background: linear-gradient(180deg, #4DA9FF 0%, #DAFEE4 100%);
+  height: 100vh;
+  .cover-image-top{
+    padding-top: 60px;
+    position: relative;
+  }
+  .img-dashboard1{
+    position: relative;
+    left: 190px;
+    z-index: 1000;
+  }
+  .img-dashboard2{
+    position: absolute;
+    //left: 450px;
+    top: 205px;
+  }
+  .cover-image-bottom{
+    position: relative;
+    padding-top: 120px;
+  }
+  .img-dashboard3{
+    position: absolute;
+    right: 90px;
+  }
+  .img-turbine1{
+    position: absolute;
+    top: 320px;
+    right: 430px;
+  }
+  .img-turbine2{
+    position: absolute;
+    top: 350px;
+    right: 780px;
+  }
+  .img-turbine3{
+    position: absolute;
+    top: 405px;
+    right: 578px;
+  }
+}

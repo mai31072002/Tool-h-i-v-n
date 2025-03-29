@@ -1,0 +1,97 @@
+.container-form-update-password{
+  display: flex;
+  justify-content: center;
+  .cover-form-update-password{
+    border-radius: 8px;
+    background: #FFFFFF;
+    margin-top: 100px;
+  }
+  .title-update-password{
+    font-family: Inter;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 28px;
+    color: #000000;
+    text-align: center;
+    padding-bottom: 30px;
+  }
+  .form-update-password{
+    background: #ffffff;
+    padding: 40px 60px;
+    //margin-top: 100px;
+    border-radius: 8px;
+    width: 600px;
+    .ant-form-item-label > label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before {
+      display: none;
+    }
+    .input-username{
+      max-width: 383px;
+      height: 38px;
+      color: #303c40;
+      font-family: Inter;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 26px;
+    }
+    .input-password-old{
+      max-width: 383px;
+      height: 38px;
+
+      color: #303c40;
+      font-family: Inter;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 26px;
+    }
+    .input-password-new{
+      max-width: 383px;
+      height: 38px;
+
+      color: #303c40;
+      font-family: Inter;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 26px;
+    }
+    .input-password-confirm{
+      height: 38px;
+
+      color: #303c40;
+      font-family: Inter;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 26px;
+    }
+    .ant-form-item-control-input-content{
+      text-align: right;
+    }
+  }
+  .ant-form-item{
+    margin-bottom: 15px !important;
+  }
+  .ant-form-item-label > label{
+    color: #303c40;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 26px;
+  }
+  .btn-save-password{
+    height: 35px;
+    width: 75px;
+    border-radius: 5px;
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 26px;
+    color: #ffffff;
+    background-color: #4D449B;
+    margin-top: 15px;
+  }
+}
